@@ -32,6 +32,7 @@ def plot_temp_graph(data,
     min_val = math.floor(min(temps)/10.0)*10
     max_val = math.ceil(max(temps)/10.0)*10
     ax.set_ylim([min_val, max_val])
+    ax.set_ylabel('Temperature')
 
     plt.savefig(output, bbox_inches='tight')
 
@@ -41,6 +42,7 @@ def plot_pop_graph(data,
     pops = [float(c[1])*100 for c in data]
     ax.plot(dates, pops, linewidth=4, color='black')
     ax.set_ylim([0,100])
+    ax.set_ylabel('% of Precipitation')
 
     plt.savefig(output, bbox_inches='tight')
 
