@@ -50,11 +50,11 @@ class SVGTemplate (object):
                                     namespaces=self.namespaces)
         ele = sel(self.template)
         if len(ele) == 0:
-            self.log.warn('selector %s failed to locate an element',
+            self.log.warn('selector "%s" failed to locate an element',
                           selector)
             return
         if len(ele) > 1:
-            self.log.warn('selector %s resulted in multiple matches',
+            self.log.warn('selector "%s" resulted in multiple matches',
                            selector)
             return
 
