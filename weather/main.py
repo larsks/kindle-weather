@@ -9,6 +9,7 @@ import jsonpointer
 import time
 from lxml import etree, cssselect
 import subprocess
+import pytz
 
 from forecastio import ForecastIO
 from svgtemplate import SVGTemplate
@@ -17,6 +18,7 @@ from grapher import (plot_temp_graph,
 
 config = {
     'output_dir': '.',
+    'timezone': pytz.utc,
 }
 
 # configuration options that can also be set on the command line
@@ -82,7 +84,8 @@ def generate_temp_graph(data):
                  for h in data['hourly']['data'][:12]]
     plot_temp_graph(temp_data,
                     output='{[output_dir]}/graph-temp.png'.format(
-                        config))
+                        config),
+                    tz=pytz.timezone(config['timezone']))
 
 
 def generate_pop_graph(data):
@@ -91,7 +94,8 @@ def generate_pop_graph(data):
                 for h in data['hourly']['data'][:12]]
     plot_pop_graph(pop_data,
                    output='{[output_dir]}/graph-pop.png'.format(
-                       config))
+                       config),
+                   tz=pytz.timezone(config['timezone']))
 
 
 def generate_graphs(data):
@@ -219,8 +223,8 @@ def main():
     with open(args.config) as fd:
         logging.info('reading config from %s',
                      args.config)
-        config = yaml.load(fd)
-        config = config.get('weather', {})
+        config_from_file = yaml.load(fd)
+        config.update(config_from_file.get('weather', {}))
 
     for k in config_keys:
         v = getattr(args, k)
@@ -229,7 +233,7 @@ def main():
 
     for k in required_keys:
         if not k in config:
-            log.error('missing required configuration option %s',
+            logging.error('missing required configuration option %s',
                       k)
             sys.exit(2)
 
