@@ -154,11 +154,16 @@ def generate_svg(data):
         },
     }
 
-    with open('{[output_dir]}/page1.svg'.format(config), 'w') as fd:
+    svg_out = '{[output_dir]}/page1.svg'.format(config)
+    png_out = '{[output_dir]}/page1.png'.format(config)
+    with open(svg_out, 'w') as fd:
         fd.write(template.render(
             data,
             valuemap,
             filemap))
+
+    subprocess.check_call(['convert', svg_out, png_out])
+    subprocess.check_call(['pngcrush', '-c', '0', '-ow', png_out])
 
 def main():
     global config
