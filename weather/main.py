@@ -40,7 +40,9 @@ iconmap = {
     'rain': 'ra',
     'partly-cloudy-day': 'few',
     'partly-cloudy-night': 'few',
+    'clear-night': 'skc',
     'cloudy': 'ovc',
+    'snow': 'sn',
 }
 
 valuemap = {
