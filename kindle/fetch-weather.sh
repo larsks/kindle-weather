@@ -6,7 +6,7 @@ PAGES="/tmp/weather"
 cd $(dirname $0)
 
 mkdir -p $PAGES
-rm -f $PAGES/*
+rm -f $PAGES/page*.png
 
 i=1
 while :; do
