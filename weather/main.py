@@ -104,6 +104,11 @@ def generate_graphs(data):
     generate_pop_graph(data)
 
 
+def postprocess(svg_out, png_out):
+    subprocess.check_call(['convert', '-colors', '256', '-depth', '8', svg_out, png_out])
+    subprocess.check_call(['pngcrush', '-q', '-c', '0', '-ow', png_out])
+
+
 def generate_page1(data):
     logging.debug('generating svg page 1')
     template = SVGTemplate('data/page1.svg',
@@ -112,11 +117,11 @@ def generate_page1(data):
     p1map = {
         '/currently/time': {
             'selector': '#last_updated_at',
-            'format': lambda x: time.strftime('%Y-%m-%d %H:%M', 
+            'format': lambda x: time.strftime('%Y-%m-%d %H:%M',
                                               time.localtime(x)),
         },
     }
-    for day in [0,1]:
+    for day in [0, 1]:
         p1map['/daily/data/{}/time'.format(day)] = {
             'selector': '#day_{}_label svg|tspan'.format(day),
             'format': lambda x: time.strftime('%A', 
@@ -159,8 +164,7 @@ def generate_page1(data):
             p1map,
             filemap))
 
-    subprocess.check_call(['convert', '-colors', '256', '-depth', '8', svg_out, png_out])
-    subprocess.check_call(['pngcrush', '-c', '0', '-ow', png_out])
+    postprocess(svg_out, png_out)
 
 def generate_page2(data):
     logging.debug('generating svg page 2')
@@ -207,8 +211,7 @@ def generate_page2(data):
             p2map,
             {}))
 
-    subprocess.check_call(['convert', '-colors', '256', '-depth', '8', svg_out, png_out])
-    subprocess.check_call(['pngcrush', '-c', '0', '-ow', png_out])
+    postprocess(svg_out, png_out)
 
 def generate_svg(data):
     logging.debug('generating svg output')
