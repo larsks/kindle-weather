@@ -191,8 +191,8 @@ def main():
     config['output_dir'] = os.path.abspath(config['output_dir'])
 
     data = get_forecast_data()
-    generate_svg(data)
     generate_graphs(data)
+    generate_svg(data)
 
 if __name__ == '__main__':
     f = main()
