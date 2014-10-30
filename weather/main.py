@@ -32,8 +32,9 @@ required_keys = [
     'location',
 ]
 
-namespacemap = {
+namespaces = {
     'xlink': 'http://www.w3.org/1999/xlink',
+    'svg': 'http://www.w3.org/2000/svg',
 }
 
 iconmap = {
@@ -43,50 +44,6 @@ iconmap = {
     'clear-night': 'skc',
     'cloudy': 'ovc',
     'snow': 'sn',
-}
-
-valuemap = {
-    '/daily/data/0/temperatureMax': {
-        'selector': '#day_0_high',
-        'format': lambda x: str(int(round(x))),
-    },
-    '/daily/data/0/temperatureMin': {
-        'selector': '#day_0_low',
-        'format': lambda x: str(int(round(x))),
-    },
-    '/daily/data/0/precipProbability': {
-        'selector': '#day_0_pop',
-        'format': lambda x: str(int(round(x*100))),
-    },
-    '/daily/data/0/icon': {
-        'selector': '#day_0_icon',
-        'format': lambda x: '#{}'.format(iconmap.get(x, 'unknown')),
-        'attr': '{{{[xlink]}}}href'.format(namespacemap),
-    },
-
-    '/daily/data/1/temperatureMax': {
-        'selector': '#day_1_high',
-        'format': lambda x: str(int(round(x))),
-    },
-    '/daily/data/1/temperatureMin': {
-        'selector': '#day_1_low',
-        'format': lambda x: str(int(round(x))),
-    },
-    '/daily/data/1/precipProbability': {
-        'selector': '#day_1_pop',
-        'format': lambda x: str(int(round(x*100))),
-    },
-    '/daily/data/1/icon': {
-        'selector': '#day_1_icon',
-        'format': lambda x: '#{}'.format(iconmap.get(x, 'unknown')),
-        'attr': '{{{[xlink]}}}href'.format(namespacemap),
-    },
-
-    '/currently/time': {
-        'selector': '#last_updated_at',
-        'format': lambda x: time.strftime('%Y-%m-%d %H:%M', 
-                                          time.localtime(x)),
-    },
 }
 
 def parse_args():
@@ -142,16 +99,49 @@ def generate_graphs(data):
     generate_pop_graph(data)
 
 
-def generate_svg(data):
-    template = SVGTemplate('data/page1.svg')
+def generate_page1(data):
+    logging.debug('generating svg page 1')
+    template = SVGTemplate('data/page1.svg',
+                           namespaces=namespaces)
+
+    p1map = {
+        '/currently/time': {
+            'selector': '#last_updated_at',
+            'format': lambda x: time.strftime('%Y-%m-%d %H:%M', 
+                                              time.localtime(x)),
+        },
+    }
+    for day in [0,1]:
+        p1map['/daily/data/{}/time'.format(day)] = {
+            'selector': '#day_{}_label svg|tspan'.format(day),
+            'format': lambda x: time.strftime('%A', 
+                                              time.localtime(x)),
+        }
+        p1map['/daily/data/{}/temperatureMax'.format(day)] = {
+            'selector': '#day_{}_high'.format(day),
+            'format': lambda x: str(int(round(x))),
+        }
+        p1map['/daily/data/{}/temperatureMin'.format(day)] = {
+            'selector': '#day_{}_low'.format(day),
+            'format': lambda x: str(int(round(x))),
+        }
+        p1map['/daily/data/{}/precipProbability'.format(day)] = {
+            'selector': '#day_{}_pop'.format(day),
+            'format': lambda x: str(int(round(x*100))),
+        }
+        p1map['/daily/data/{}/icon'.format(day)] = {
+            'selector': '#day_{}_icon svg|use'.format(day),
+            'format': lambda x: '#{}'.format(iconmap.get(x, 'unknown')),
+            'attr': '{{{[xlink]}}}href'.format(namespaces),
+        }
 
     filemap = {
         '#graph-temp': {
-            'attr': '{{{[xlink]}}}href'.format(namespacemap),
+            'attr': '{{{[xlink]}}}href'.format(namespaces),
             'value': 'file://{[output_dir]}/graph-temp.png'.format(config),
         },
         '#graph-pop': {
-            'attr': '{{{[xlink]}}}href'.format(namespacemap),
+            'attr': '{{{[xlink]}}}href'.format(namespaces),
             'value': 'file://{[output_dir]}/graph-pop.png'.format(config),
         },
     }
@@ -161,11 +151,64 @@ def generate_svg(data):
     with open(svg_out, 'w') as fd:
         fd.write(template.render(
             data,
-            valuemap,
+            p1map,
             filemap))
 
     subprocess.check_call(['convert', '-colors', '256', '-depth', '8', svg_out, png_out])
     subprocess.check_call(['pngcrush', '-c', '0', '-ow', png_out])
+
+def generate_page2(data):
+    logging.debug('generating svg page 2')
+    template = SVGTemplate('data/page2.svg',
+                           namespaces=namespaces)
+
+    p2map = {
+        '/currently/time': {
+            'selector': '#last_updated_at',
+            'format': lambda x: time.strftime('%Y-%m-%d %H:%M', 
+                                              time.localtime(x)),
+        },
+    }
+
+    for day in [2,3,4,5]:
+        p2map['/daily/data/{}/time'.format(day)] = {
+            'selector': '#day_{}_label svg|tspan'.format(day),
+            'format': lambda x: time.strftime('%A', 
+                                              time.localtime(x)),
+        }
+        p2map['/daily/data/{}/temperatureMax'.format(day)] = {
+            'selector': '#day_{}_high'.format(day),
+            'format': lambda x: str(int(round(x))),
+        }
+        p2map['/daily/data/{}/temperatureMin'.format(day)] = {
+            'selector': '#day_{}_low'.format(day),
+            'format': lambda x: str(int(round(x))),
+        }
+        p2map['/daily/data/{}/precipProbability'.format(day)] = {
+            'selector': '#day_{}_pop'.format(day),
+            'format': lambda x: str(int(round(x*100))),
+        }
+        p2map['/daily/data/{}/icon'.format(day)] = {
+            'selector': '#day_{}_icon svg|use'.format(day),
+            'format': lambda x: '#{}'.format(iconmap.get(x, 'unknown')),
+            'attr': '{{{[xlink]}}}href'.format(namespaces),
+        }
+
+    svg_out = '{[output_dir]}/page2.svg'.format(config)
+    png_out = '{[output_dir]}/page2.png'.format(config)
+    with open(svg_out, 'w') as fd:
+        fd.write(template.render(
+            data,
+            p2map,
+            {}))
+
+    subprocess.check_call(['convert', '-colors', '256', '-depth', '8', svg_out, png_out])
+    subprocess.check_call(['pngcrush', '-c', '0', '-ow', png_out])
+
+def generate_svg(data):
+    logging.debug('generating svg output')
+    generate_page1(data)
+    generate_page2(data)
 
 def main():
     global config

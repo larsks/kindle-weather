@@ -9,9 +9,16 @@ import logging
 class SVGTemplate (object):
     log = logging.getLogger(__name__)
 
-    def __init__(self, template_file):
+    def __init__(self, template_file, namespaces=None):
         self.template_file = template_file
         self.load_template()
+        self.namespaces = {}
+
+        if namespaces is not None:
+            self.namespaces.update(namespaces)
+
+    def register_ns(self, prefix, ns):
+        self.namespaces[prefix] = ns
 
     def load_template(self):
         logging.debug('parsing svg template')
@@ -39,9 +46,10 @@ class SVGTemplate (object):
         '''Locate an element in the template with a CSS selector.  Returns
         the element, or None.'''
 
-        sel = cssselect.CSSSelector(selector)
+        sel = cssselect.CSSSelector(selector,
+                                    namespaces=self.namespaces)
         ele = sel(self.template)
-        if not ele:
+        if len(ele) == 0:
             self.log.warn('selector %s failed to locate an element',
                           selector)
             return
@@ -58,6 +66,8 @@ class SVGTemplate (object):
             val = spec['format'](val)
 
             ele = self.find_element(spec['selector'])
+            if ele is None:
+                continue
 
             if 'attr' in spec:
                 ele.set(spec['attr'], val)
@@ -67,6 +77,8 @@ class SVGTemplate (object):
     def update_constants(self, constants):
         for selector,spec in constants.items():
             ele = self.find_element(selector)
+            if ele is None:
+                continue
 
             if 'attr' in spec:
                 ele.set(spec['attr'], spec['value'])
