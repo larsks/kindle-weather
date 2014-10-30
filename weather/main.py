@@ -162,7 +162,7 @@ def generate_svg(data):
             valuemap,
             filemap))
 
-    subprocess.check_call(['convert', svg_out, png_out])
+    subprocess.check_call(['convert', '-colors', '256', '-depth', '8', svg_out, png_out])
     subprocess.check_call(['pngcrush', '-c', '0', '-ow', png_out])
 
 def main():
