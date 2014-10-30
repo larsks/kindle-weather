@@ -40,11 +40,12 @@ namespaces = {
 }
 
 iconmap = {
-    'rain': 'ra',
-    'partly-cloudy-day': 'few',
-    'partly-cloudy-night': 'few',
+    'clear-day': 'skc',
     'clear-night': 'skc',
     'cloudy': 'ovc',
+    'partly-cloudy-day': 'few',
+    'partly-cloudy-night': 'few',
+    'rain': 'ra',
     'snow': 'sn',
 }
 
