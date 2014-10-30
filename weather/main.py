@@ -5,9 +5,7 @@ import sys
 import argparse
 import yaml
 import logging
-import jsonpointer
 import time
-from lxml import etree, cssselect
 import subprocess
 import pytz
 
@@ -49,6 +47,7 @@ iconmap = {
     'snow': 'sn',
 }
 
+
 def parse_args():
     p = argparse.ArgumentParser()
     p.add_argument('--config', '-f',
@@ -69,6 +68,7 @@ def parse_args():
 
     p.set_defaults(loglevel=logging.WARN)
     return p.parse_args()
+
 
 def get_forecast_data():
     logging.debug('getting forecast data')
@@ -105,7 +105,8 @@ def generate_graphs(data):
 
 
 def postprocess(svg_out, png_out):
-    subprocess.check_call(['convert', '-colors', '256', '-depth', '8', svg_out, png_out])
+    subprocess.check_call(['convert', '-colors', '256',
+                           '-depth', '8', svg_out, png_out])
     subprocess.check_call(['pngcrush', '-q', '-c', '0', '-ow', png_out])
 
 
@@ -124,7 +125,7 @@ def generate_page1(data):
     for day in [0, 1]:
         p1map['/daily/data/{}/time'.format(day)] = {
             'selector': '#day_{}_label svg|tspan'.format(day),
-            'format': lambda x: time.strftime('%A', 
+            'format': lambda x: time.strftime('%A',
                                               time.localtime(x)),
         }
         p1map['/daily/data/{}/temperatureMax'.format(day)] = {
@@ -166,6 +167,7 @@ def generate_page1(data):
 
     postprocess(svg_out, png_out)
 
+
 def generate_page2(data):
     logging.debug('generating svg page 2')
     template = SVGTemplate('data/page2.svg',
@@ -174,15 +176,15 @@ def generate_page2(data):
     p2map = {
         '/currently/time': {
             'selector': '#last_updated_at',
-            'format': lambda x: time.strftime('%Y-%m-%d %H:%M', 
+            'format': lambda x: time.strftime('%Y-%m-%d %H:%M',
                                               time.localtime(x)),
         },
     }
 
-    for day in [2,3,4,5]:
+    for day in [2, 3, 4, 5]:
         p2map['/daily/data/{}/time'.format(day)] = {
             'selector': '#day_{}_label svg|tspan'.format(day),
-            'format': lambda x: time.strftime('%A', 
+            'format': lambda x: time.strftime('%A',
                                               time.localtime(x)),
         }
         p2map['/daily/data/{}/temperatureMax'.format(day)] = {
@@ -213,10 +215,12 @@ def generate_page2(data):
 
     postprocess(svg_out, png_out)
 
+
 def generate_svg(data):
     logging.debug('generating svg output')
     generate_page1(data)
     generate_page2(data)
+
 
 def main():
     global config
@@ -236,9 +240,9 @@ def main():
             config[k] = v
 
     for k in required_keys:
-        if not k in config:
+        if k not in config:
             logging.error('missing required configuration option %s',
-                      k)
+                          k)
             sys.exit(2)
 
     config['output_dir'] = os.path.abspath(config['output_dir'])
@@ -249,4 +253,3 @@ def main():
 
 if __name__ == '__main__':
     f = main()
-
