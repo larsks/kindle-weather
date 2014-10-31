@@ -45,6 +45,7 @@ iconmap = {
     'partly-cloudy-night': 'few',
     'rain': 'ra',
     'snow': 'sn',
+    'wind': 'wind',
 }
 
 
