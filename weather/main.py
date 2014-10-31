@@ -17,6 +17,7 @@ from grapher import (plot_temp_graph,
 config = {
     'output_dir': '.',
     'timezone': pytz.utc,
+    'number_of_hours': 12,
 }
 
 # configuration options that can also be set on the command line
@@ -24,6 +25,7 @@ config_keys = [
     'apikey',
     'location',
     'output_dir',
+    'number_of_hours',
 ]
 
 # configuration options for which we cannot provide a default
@@ -56,6 +58,7 @@ def parse_args():
     p.add_argument('--output-dir', '-o')
     p.add_argument('--apikey', '-k')
     p.add_argument('--location', '-l')
+    p.add_argument('--number-of-hours', '-n')
 
     g = p.add_argument_group('Logging')
     g.add_argument('--debug', '-d',
@@ -83,7 +86,8 @@ def get_forecast_data():
 def generate_temp_graph(data):
     logging.info('generating temperature graph')
     temp_data = [(h['time'], h['temperature'])
-                 for h in data['hourly']['data'][:12]]
+                 for h in
+                 data['hourly']['data'][:int(config['number_of_hours'])]]
     plot_temp_graph(temp_data,
                     output='{[output_dir]}/graph-temp.png'.format(
                         config),
@@ -93,7 +97,8 @@ def generate_temp_graph(data):
 def generate_pop_graph(data):
     logging.info('generating precipitation graph')
     pop_data = [(h['time'], h['precipProbability'])
-                for h in data['hourly']['data'][:12]]
+                for h in
+                data['hourly']['data'][:int(config['number_of_hours'])]]
     plot_pop_graph(pop_data,
                    output='{[output_dir]}/graph-pop.png'.format(
                        config),
@@ -236,6 +241,8 @@ def main():
             sys.exit(2)
 
     config['output_dir'] = os.path.abspath(config['output_dir'])
+
+    logging.debug('config = %s', config)
 
     data = get_forecast_data()
     generate_graphs(data)
