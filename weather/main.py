@@ -146,24 +146,13 @@ def generate_page1(data):
             'attr': '{{{[xlink]}}}href'.format(namespaces),
         }
 
-    filemap = {
-        '#graph-temp': {
-            'attr': '{{{[xlink]}}}href'.format(namespaces),
-            'value': 'file://{[output_dir]}/graph-temp.png'.format(config),
-        },
-        '#graph-pop': {
-            'attr': '{{{[xlink]}}}href'.format(namespaces),
-            'value': 'file://{[output_dir]}/graph-pop.png'.format(config),
-        },
-    }
-
     svg_out = '{[output_dir]}/page1.svg'.format(config)
     png_out = '{[output_dir]}/page1.png'.format(config)
     with open(svg_out, 'w') as fd:
         fd.write(template.render(
             data,
             p1map,
-            filemap))
+            {}))
 
     postprocess(svg_out, png_out)
 
