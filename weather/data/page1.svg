@@ -103,14 +103,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.91037569"
-     inkscape:cx="336.49322"
+     inkscape:cx="199.18727"
      inkscape:cy="400.71429"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1198"
      inkscape:window-height="926"
-     inkscape:window-x="645"
+     inkscape:window-x="646"
      inkscape:window-y="96"
      inkscape:window-maximized="0"
      showguides="true"
@@ -163,110 +163,61 @@
        id="graph-pop"
        x="0.85715151"
        y="850.93359" />
-    <g
-       id="g3418">
-      <g
-         id="g3383">
-        <text
-           id="text3332"
-           x="48.51614"
-           y="573.66602"
-           font-size="35px"
-           style="font-size:28px;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-align:center;writing-mode:lr;line-height:125%"
-           sodipodi:linespacing="125%">High:</text>
-        <text
-           id="day_0_high"
-           x="90.347221"
-           y="642.12152"
-           font-size="100px"
-           style="font-size:66.18395233px;text-anchor:end;font-family:DejaVu Sans">00</text>
-      </g>
-      <g
-         id="g3387">
-        <text
-           style="font-size:28px;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-align:center;writing-mode:lr;line-height:125%"
-           font-size="35px"
-           y="573.66602"
-           x="150.659"
-           id="text3520"
-           sodipodi:linespacing="125%">Low:</text>
-        <text
-           style="font-size:66.18395233px;text-anchor:end;font-family:DejaVu Sans"
-           font-size="100px"
-           y="642.12152"
-           x="192.49008"
-           id="day_0_low">00</text>
-      </g>
-      <g
-         id="g3391">
-        <text
-           id="text3528"
-           x="252.80186"
-           y="573.66602"
-           font-size="35px"
-           style="font-size:28px;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-align:center;writing-mode:lr;line-height:125%"
-           sodipodi:linespacing="125%">PoP:</text>
-        <text
-           id="day_0_pop"
-           x="294.63293"
-           y="642.12152"
-           font-size="100px"
-           style="font-size:66.18395233px;text-anchor:end;font-family:DejaVu Sans">00</text>
-      </g>
-    </g>
-    <g
-       id="g3407">
-      <g
-         id="g3395">
-        <text
-           style="font-size:28px;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-align:center;writing-mode:lr;line-height:125%"
-           font-size="35px"
-           y="573.66602"
-           x="348.51614"
-           id="text3534"
-           sodipodi:linespacing="125%">High:</text>
-        <text
-           style="font-size:66.18395233px;text-anchor:end;font-family:DejaVu Sans"
-           font-size="100px"
-           y="642.12152"
-           x="390.34723"
-           id="day_1_high">00</text>
-      </g>
-      <g
-         id="g3399">
-        <text
-           id="text3540"
-           x="450.659"
-           y="573.66602"
-           font-size="35px"
-           style="font-size:28px;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-align:center;writing-mode:lr;line-height:125%"
-           sodipodi:linespacing="125%">Low:</text>
-        <text
-           id="day_1_low"
-           x="492.49008"
-           y="642.12152"
-           font-size="100px"
-           style="font-size:66.18395233px;text-anchor:end;font-family:DejaVu Sans">00</text>
-      </g>
-      <g
-         id="g3403">
-        <text
-           style="font-size:28px;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-align:center;writing-mode:lr;line-height:125%"
-           font-size="35px"
-           y="573.66602"
-           x="552.80188"
-           id="text3546"
-           sodipodi:linespacing="125%">PoP:</text>
-        <text
-           style="font-size:66.18395233px;text-anchor:end;font-family:DejaVu Sans"
-           font-size="100px"
-           y="642.12152"
-           x="594.63293"
-           id="day_1_pop">00</text>
-      </g>
-    </g>
-    <g
-       transform="matrix(2.25,0,0,2.25,22.5,312.5)"
+    <text
+       id="text3332"
+       x="49.998085"
+       y="599.66602"
+       font-size="35px"
+       style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       sodipodi:linespacing="125%">High:</text>
+    <text
+       sodipodi:linespacing="125%"
+       id="day_0_high"
+       x="48.865273"
+       y="642.12152"
+       font-size="100px"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans">100</text>
+    <text
+       style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       font-size="35px"
+       y="599.66602"
+       x="153.10532"
+       id="text3520"
+       sodipodi:linespacing="125%">Low:</text>
+    <text
+       sodipodi:linespacing="125%"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       font-size="100px"
+       y="642.12152"
+       x="152.49008"
+       id="day_0_low">101</text>
+    <text
+       id="text3528"
+       x="255.49231"
+       y="599.66602"
+       font-size="35px"
+       style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       sodipodi:linespacing="125%">PoP:</text>
+    <text
+       sodipodi:linespacing="125%"
+       id="day_0_pop"
+       x="254.63293"
+       y="642.12152"
+       font-size="100px"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans">103</text>
+    <flowRoot
+       transform="translate(0,252.36218)"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       id="flowRoot3070"
+       xml:space="preserve"><flowRegion
+         id="flowRegion3072"><rect
+           y="357.32562"
+           x="285.59637"
+           height="23.0674"
+           width="23.0674"
+           id="rect3074" /></flowRegion><flowPara
+         id="flowPara3076"></flowPara></flowRoot>    <g
+       transform="matrix(2.25,0,0,2.25,22.5,324.5)"
        id="day_0_icon"
        inkscape:label="#g3916">
       <use
@@ -278,7 +229,7 @@
          id="use3673" />
     </g>
     <g
-       transform="matrix(2.25,0,0,2.25,337.5,312.5)"
+       transform="matrix(2.25,0,0,2.25,337.5,324.5)"
        id="day_1_icon"
        inkscape:label="#g3919">
       <use
@@ -349,5 +300,61 @@
          y="267.98767"
          style="font-weight:normal;fill:#ffffff;stroke:#ffffff;-inkscape-font-specification:Sans">Last updated at: <tspan
    id="last_updated_at">2014-10-25</tspan></tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       font-size="35px"
+       y="599.66602"
+       x="347.99808"
+       id="text3080">High:</text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3084"
+       x="451.10532"
+       y="599.66602"
+       font-size="35px"
+       style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans">Low:</text>
+    <text
+       sodipodi:linespacing="125%"
+       style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       font-size="35px"
+       y="599.66602"
+       x="553.49231"
+       id="text3088">PoP:</text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3092"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(298,0)"><flowRegion
+         id="flowRegion3094"><rect
+           id="rect3096"
+           width="23.0674"
+           height="23.0674"
+           x="285.59637"
+           y="357.32562" /></flowRegion><flowPara
+         id="flowPara3098"></flowPara></flowRoot>    <text
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       font-size="100px"
+       y="642.12152"
+       x="346.86526"
+       id="day_1_high"
+       sodipodi:linespacing="125%"
+       inkscape:label="#text3120">100</text>
+    <text
+       id="day_1_low"
+       x="450.49008"
+       y="642.12152"
+       font-size="100px"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       sodipodi:linespacing="125%"
+       inkscape:label="#text3122">101</text>
+    <text
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       font-size="100px"
+       y="642.12152"
+       x="552.63293"
+       id="day_1_pop"
+       sodipodi:linespacing="125%"
+       inkscape:label="#text3124">103</text>
   </g>
 </svg>
