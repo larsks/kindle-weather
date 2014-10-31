@@ -110,8 +110,8 @@
      showgrid="false"
      inkscape:window-width="1198"
      inkscape:window-height="926"
-     inkscape:window-x="646"
-     inkscape:window-y="96"
+     inkscape:window-x="301"
+     inkscape:window-y="113"
      inkscape:window-maximized="0"
      showguides="true"
      inkscape:snap-global="true"
@@ -150,19 +150,21 @@
      id="layer1"
      transform="translate(0,-252.36218)">
     <image
-       y="652.36218"
-       x="8.5527254e-06"
-       id="graph-temp"
-       xlink:href="file:///home/lars/projects/kindle-weather/graph-temp.png"
-       height="200"
-       width="600" />
-    <image
+       sodipodi:absref="/home/lars/projects/kindle-weather/weather/data/graph-temp.png"
+       xlink:href="graph-temp.png"
        width="600"
        height="200"
-       xlink:href="file:///home/lars/projects/kindle-weather/graph-pop.png"
-       id="graph-pop"
+       id="graph-temp"
+       x="8.5527254e-06"
+       y="652.36218" />
+    <image
+       sodipodi:absref="/home/lars/projects/kindle-weather/weather/data/graph-pop.png"
+       xlink:href="graph-pop.png"
+       y="850.93359"
        x="0.85715151"
-       y="850.93359" />
+       id="graph-pop"
+       height="200"
+       width="600" />
     <text
        id="text3332"
        x="49.998085"
@@ -210,13 +212,9 @@
        style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        id="flowRoot3070"
        xml:space="preserve"><flowRegion
-         id="flowRegion3072"><rect
-           y="357.32562"
-           x="285.59637"
-           height="23.0674"
-           width="23.0674"
-           id="rect3074" /></flowRegion><flowPara
-         id="flowPara3076"></flowPara></flowRoot>    <g
+         id="flowRegion3072">
+           </flowRegion><flowPara
+         id="flowPara3076" /></flowRoot>    <g
        transform="matrix(2.25,0,0,2.25,22.5,324.5)"
        id="day_0_icon"
        inkscape:label="#g3916">
@@ -251,12 +249,8 @@
        xml:space="preserve"
        id="flowRoot4350"
        style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
-         id="flowRegion4352"><rect
-           id="rect4354"
-           width="198.57143"
-           height="121.42857"
-           x="-130"
-           y="-18.571428" /></flowRegion><flowPara
+         id="flowRegion4352">
+           </flowRegion><flowPara
          id="flowPara4356" /></flowRoot>    <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -326,13 +320,9 @@
        id="flowRoot3092"
        style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        transform="translate(298,0)"><flowRegion
-         id="flowRegion3094"><rect
-           id="rect3096"
-           width="23.0674"
-           height="23.0674"
-           x="285.59637"
-           y="357.32562" /></flowRegion><flowPara
-         id="flowPara3098"></flowPara></flowRoot>    <text
+         id="flowRegion3094">
+           </flowRegion><flowPara
+         id="flowPara3098" /></flowRoot>    <text
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        font-size="100px"
        y="642.12152"
