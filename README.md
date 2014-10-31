@@ -3,6 +3,7 @@ as a weather display device.  This was inspired by [Matthew Petroff's
 work][mpetroff], but I have rewritten just about everything for this
 project.
 
+[kindle]: http://amazon.com/kindle
 [mpetroff]: http://mpetroff.net/2012/09/kindle-weather-display/
 
 This will initially display summary forecasts for the current day and
@@ -42,6 +43,8 @@ Apache virtual host.
 You will need to provide `kindle-weather` with a configuration file
 (in [YAML][] format) with a top-level `weather` key containing at
 least the following items:
+
+[yaml]: http://en.wikipedia.org/wiki/YAML
 
 - `apikey` -- your forecast.io API key
 - `location` -- your location expressed as *latitude,longitude*
