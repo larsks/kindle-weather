@@ -48,6 +48,7 @@ iconmap = {
     'rain': 'ra',
     'snow': 'sn',
     'wind': 'wind',
+    'fog': 'fg',
 }
 
 
